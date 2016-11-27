@@ -1,0 +1,17 @@
+{
+  "excludeScenes": [],
+  "includeAnySDK": false,
+  "includeSdk": [
+    "anysdk"
+  ],
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
+  "packageName": "org.cocos2d.Tower",
+  "startScene": "368b5fb9-4835-40f6-9ca9-a22a4e80f404",
+  "title": "Tower",
+  "webOrientation": "landscape"
+}
