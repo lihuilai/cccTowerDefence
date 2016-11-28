@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "enemy",
+    "_name": "enemy0",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -46,8 +46,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 5
+      "x": 858,
+      "y": 603
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -195,7 +195,7 @@
     "_scaleY": 0.4,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 3.8,
+      "x": 0,
       "y": 34.3
     },
     "_skewX": 0,
@@ -379,7 +379,9 @@
     "BloodProgressBar": {
       "__id__": 5
     },
-    "BloodCount": 100
+    "BloodCount": 100,
+    "State": -1,
+    "GoldCount": 100
   },
   {
     "__type__": "cc.PrefabInfo",

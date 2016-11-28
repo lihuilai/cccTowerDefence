@@ -1,3 +1,9 @@
+const EnemyState = {
+    Invalide: -1,
+    Waiting: 1,
+    Alive: 2,
+    Dead: 3
+}
 cc.Class({
     extends: cc.Component,
 
@@ -26,13 +32,17 @@ cc.Class({
             default: null,
             type: cc.Node
         },
-        BloodCount: 0
+        BloodCount: 0,
+        State: EnemyState.Invalide,
+        GoldCount: 0
 
     },
 
     // use this for initialization
     onLoad: function () {
         this.TotalBolldCount = this.BloodCount;
+        this.setState(EnemyState.Alive);
+
     },
     initEnemy : function (PathObjects) {
        // this.node.convertToWorldSpace()
@@ -72,13 +82,41 @@ cc.Class({
         this.node.setLocalZOrder(Math.abs(Math.floor(1000 - this.node.getPositionY())));
    },
     hited: function (damage) {
-        cc.log('被攻击 =' + damage);
+        //cc.log('被攻击 =' + damage);
         this.BloodCount -= damage;
         if (this.BloodCount <= 0){
             this.BloodCount = 0;
             ///这只羊死了
             //删掉自己
-            this.node.parent.removeChild(this.node);
+            //this.node.parent.removeChild(this.node);
+            this.Game.removeEnemy(this);
+            this.setState(EnemyState.Dead);
         }
+    }
+    ,
+    setState: function (state) {
+        if (this.State === state){
+            return
+        }
+        switch (state){
+            case EnemyState.Invalide:
+                break;
+            case EnemyState.Waiting:
+                break;
+            case EnemyState.Alive:
+                break;
+            case EnemyState.Dead:
+                break;
+            default:
+                break;
+        }
+        this.State = state;
+
+    },
+    isAlive: function () {
+        if (this.State === EnemyState.Alive){
+            return true;
+        }
+        return false;
     }
 });

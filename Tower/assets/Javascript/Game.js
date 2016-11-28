@@ -2,7 +2,9 @@ var GameState = {
     Invalide: -1,
     Waiting: 1,
     Running: 2,
-    GameOver: 3
+    EnemyNull: 3,
+    GameOver: 4,
+    GameWinLayer: 5
 }
 cc.Class({
     extends: cc.Component,
@@ -24,8 +26,12 @@ cc.Class({
         },
         GoldCount: 100,
         State: GameState.Invalide,
-        Enemy: {
+        GameWinLayer: {
             default: null,
+            type: cc.Node
+        },
+        EnemyPrefabs: {
+            default: [],
             type: cc.Prefab
         },
         PathObject: {
@@ -51,7 +57,13 @@ cc.Class({
         ShowMessageLabel: {
             default: null,
             type: cc.Prefab
-        }
+        },
+        EnemyEnterConfig: {
+            default: [],
+            type: cc.Integer
+        },
+        EnemyWaveIndex: 0,
+        EnemyEnterSpeed: 0
 
     },
     removeAllMenu: function () {
@@ -86,27 +98,37 @@ cc.Class({
     },
 
     addEnemy: function () {
-        if(this.enemyIndex > 6){
-            return
-        }
-        this.enemyIndex ++;
-        var enemy = cc.instantiate(this.Enemy);
+        var enemy = cc.instantiate(this.EnemyPrefabs[this.EnemyWaveIndex]);
         enemy.getComponent('Enemy').Game = this;
         enemy.getComponent('Enemy').initEnemy(this.PathObject);
         // this.EnemyLayer.addChild(enemy);
         this.GameLayer.addChild(enemy);
         this.Enemys.push(enemy);
+        this.EnemyEnterConfig[this.EnemyWaveIndex]--;
+        if (this.EnemyEnterConfig[this.EnemyWaveIndex] <= 0){
+            this.EnemyWaveIndex ++;
+            if (this.EnemyWaveIndex >= this.EnemyEnterConfig.length){
+                cc.log('敌人增加结束');
+                this.setState(GameState.EnemyNull);
+            }
+        }
     },
     // called every frame, uncomment this function to activate update callback
     update: function (dt) {
         if (this.State === GameState.Running) {
             this.GoldLabel.string = this.GoldCount.toString();
-            if (this.NowTime > 3) {
+            if (this.NowTime > this.EnemyEnterSpeed) {
                 // console.log('加一个敌人');
                 this.NowTime = 0;
                 this.addEnemy();
             } else {
-                this.NowTime += dt;
+                this.NowTime += dt * 1000;
+            }
+        }
+        if (this.State === GameState.EnemyNull){
+            if (this.Enemys.length === 0){
+                cc.log('Game over');
+                this.setState(GameState.GameOver);
             }
         }
     },
@@ -118,7 +140,6 @@ cc.Class({
                 this.Enemys.splice(i,1);
                 // console.log('删掉一个 敌人');
             }
-
         }
     },
     ScaleToGameMapSize: function (slider,coustomEventData) {
@@ -131,7 +152,7 @@ cc.Class({
         if (this.State === state){
             return;
         }
-
+        this.State = state;
         switch (state){
             case GameState.Waiting:
                 break;
@@ -140,11 +161,14 @@ cc.Class({
 
                 break;
             case GameState.GameOver:
+                this.setState(GameState.GameWinLayer);
+                break;
+            case GameState.GameWinLayer:
+                this.GameWinLayer.active = true;
                 break;
             default:
                 break;
         }
-        this.State = state;
      },
     startGame: function (selectedTowers) {
         this.SelectedTowerList = selectedTowers;
@@ -160,10 +184,23 @@ cc.Class({
     },
     removeEnemy: function (enemy) {
         for (var i = 0 ; i < this.Enemys.length; i ++){
-            if (this.Enemys[i] === enemy){
+            if (this.Enemys[i] === enemy.node){
                 this.Enemys.splice(i,1);
             }
         }
-        this.GameLayer.removeChild(enemy);
+        this.GameLayer.removeChild(enemy.node);
+        this.GoldCount += enemy.GoldCount;
+
+    },
+    updateEnemyCount: function () {
+        if (this.EnemyEnterConfig[this.EnemyWaveIndex] <= 0){
+            this.EnemyWaveIndex ++;
+            if (this.EnemyWaveIndex >= this.EnemyEnterConfig.length){
+                this.setState(GameState.GameOver);
+                cc.log('游戏结束');
+                return;
+            }
+        }
     }
+
 });

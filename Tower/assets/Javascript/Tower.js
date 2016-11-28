@@ -74,6 +74,12 @@ cc.Class({
                 this.nowTime += dt * 1000;
                // cc.log('this.nowTime = ' + this.nowTime);
             }
+            if (this.target.getComponent('Enemy').isAlive()){
+
+            }else {
+                this.target = undefined;
+            }
+
 
 
 
@@ -91,7 +97,7 @@ cc.Class({
             var minDistance = 10000;
             for (var i = 0 ; i < enemys.length ; i ++){
                 var distance = cc.pDistance(enemys[i].getPosition(),this.node.getPosition());
-                if (distance < minDistance){
+                if (distance < minDistance && enemys[i].getComponent('Enemy').isAlive()){
                     minDistance = distance;
                     this.target = enemys[i];
                     ///找到了一个敌人了

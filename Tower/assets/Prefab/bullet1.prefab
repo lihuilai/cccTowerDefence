@@ -163,7 +163,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "Damage": 10,
+    "Damage": 50,
     "HitRange": 40,
     "MoveSpeed": 200
   },
