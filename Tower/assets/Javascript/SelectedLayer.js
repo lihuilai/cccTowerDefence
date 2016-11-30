@@ -35,14 +35,11 @@ cc.Class({
             default: null,
             type: cc.Node
         },
-        Icon_TowerSpriteFrame: {
-            default: [],
-            type: cc.SpriteFrame
-        },
         SelectedTowerIcon: {
             default: null,
             type: cc.Prefab
-        }
+        },
+
     },
 
     // use this for initialization
