@@ -1,0 +1,103 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "selectedLayeAniamtion",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1.7666666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "uiLayer/LeftList/view/content/icon_tower": {
+        "props": {
+          "x": [
+            {
+              "frame": 0,
+              "value": -222,
+              "curve": [
+                0.3,
+                0.3,
+                0.38,
+                1.49
+              ]
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": 0
+            },
+            {
+              "frame": 1.5,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "uiLayer/LeftList/view/content/icon_tower_1": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.16666666666666666,
+              "value": -224,
+              "curve": [
+                0.3,
+                0.3,
+                0.53,
+                1.36
+              ]
+            },
+            {
+              "frame": 0.5,
+              "value": -2
+            },
+            {
+              "frame": 1.7666666666666666,
+              "value": -2
+            }
+          ]
+        }
+      },
+      "uiLayer/TowerMenu": {
+        "props": {
+          "y": [
+            {
+              "frame": 0.25,
+              "value": -915,
+              "curve": [
+                0.3,
+                0.3,
+                0.36,
+                1.34
+              ]
+            },
+            {
+              "frame": 0.8333333333333334,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "selecter_titleLabel": {
+        "props": {
+          "y": [
+            {
+              "frame": 0.5,
+              "value": 585.0465170155695,
+              "curve": [
+                0.54,
+                -0.02,
+                0.98,
+                0.48
+              ]
+            },
+            {
+              "frame": 1.1333333333333333,
+              "value": 450
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

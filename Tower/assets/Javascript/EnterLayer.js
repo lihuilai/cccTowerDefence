@@ -55,7 +55,8 @@ cc.Class({
     animationCB: function (event) {
         cc.log('animation is over');
         this.node.destroy();
-        this.SelectedLayer.getComponent('SelectedLayer').enter();
+        // this.SelectedLayer.getComponent('SelectedLayer').enter();
+        this.SelectedLayer.active = true;
 
     },
     buttonClick: function (event,customData) {

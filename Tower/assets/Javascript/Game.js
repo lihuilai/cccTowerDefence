@@ -172,7 +172,7 @@ cc.Class({
      },
     startGame: function (selectedTowers) {
         this.SelectedTowerList = selectedTowers;
-        // cc.log('selected towers length' + selectedTowers.length);
+        cc.log('selected towers length' + selectedTowers.length);
         this.setState(GameState.Running);
     },
     showMessage: function (str) {
