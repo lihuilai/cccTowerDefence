@@ -35,6 +35,10 @@ cc.Class({
             default: null,
             type: cc.Prefab
         },
+        TowerInformation: {
+            default: null,
+            type: cc.Prefab
+        }
 
     },
 
@@ -108,5 +112,10 @@ cc.Class({
             var action = cc.moveTo(0.2,pos);
             node.runAction(action);
         }
+    },
+    DisPlayTowerInformation: function (object,coustomData) {
+        this.towerInformation = cc.instantiate(this.TowerInformation);
+        this.towerInformation.getComponent('towerInformation').showTowerInformationAnimation(coustomData);
+        this.node.addChild(this.towerInformation);
     }
 });

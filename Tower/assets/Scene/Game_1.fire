@@ -2015,7 +2015,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -128,
+      "x": -128.00000000000006,
       "y": 0
     },
     "_skewX": 0,
@@ -3637,7 +3637,7 @@
       "__id__": 67
     },
     "component": "SelectedLayer",
-    "handler": "chooseTower",
+    "handler": "DisPlayTowerInformation",
     "customEventData": "0"
   },
   {
@@ -4094,7 +4094,7 @@
       "__id__": 67
     },
     "component": "SelectedLayer",
-    "handler": "chooseTower",
+    "handler": "DisPlayTowerInformation",
     "customEventData": "1"
   },
   {
@@ -4438,6 +4438,9 @@
     },
     "SelectedTowerIcon": {
       "__uuid__": "c4a2f378-05f0-48c8-8b90-8754b0b84485"
+    },
+    "TowerInformation": {
+      "__uuid__": "e50063d6-ac2c-41e1-85b6-cffc4b474517"
     }
   },
   {
