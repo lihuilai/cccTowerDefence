@@ -46,6 +46,15 @@ cc.Class({
     onLoad: function () {
         this.MenuItem = {};
         this.getComponent(cc.Animation).play('selectedLayeAniamtion',0);
+        // cc.loader.load(cc.url.raw('resources/config/config.json'),function (err,res) {
+        //    if (err){
+        //        cc.log(err);
+        //    }else {
+        //
+        //        cc.log('load' + JSON.stringify(res));
+        //    }
+        // });
+        // cc.log('width=' + defines.ScreenConfie.width);
     },
 
 
@@ -114,8 +123,15 @@ cc.Class({
         }
     },
     DisPlayTowerInformation: function (object,coustomData) {
+        this.CloseDisPlayTowerInformation();
         this.towerInformation = cc.instantiate(this.TowerInformation);
         this.towerInformation.getComponent('towerInformation').showTowerInformationAnimation(coustomData);
         this.node.addChild(this.towerInformation);
+    },
+    CloseDisPlayTowerInformation: function (event,customData) {
+        cc.log('customData= ' + customData);
+        if(this.towerInformation){
+            this.node.removeChild(this.towerInformation);
+        }
     }
 });

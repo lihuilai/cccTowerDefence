@@ -1,0 +1,7 @@
+[
+  {"":"1","express":"200","attack":"10","attackspeed":"100"},
+  {"":"2","express":"300","attack":"20","attackspeed":"150"},
+  {"":"3","express":"400","attack":"30","attackspeed":"200"},
+  {"":"4","express":"500","attack":"40","attackspeed":"250"},
+  {"":"5","express":"600","attack":"50","attackspeed":"300"}
+]
