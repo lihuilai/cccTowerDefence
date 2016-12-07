@@ -12,7 +12,7 @@ let Defines = ()=> {
         width: 1920,
         height: 1080
     };
-    that.ExpressToGold = 100;
+    that.ExpressToGold = 80;
     let screctData = function (value) {
         //todo加密算法
         return value;
@@ -32,7 +32,7 @@ let Defines = ()=> {
         return JSON.parse(d);
     };
     that.getTowerLevel = function (index) {
-         return that.getGameInfo(that.TowerNameConfig[index]);
+         return that.getGameInfo(that.TowerNameConfig[index] + 'Level');
     };
     that.getTowerExpress = function (index) {
         return that.getGameInfo(that.TowerNameConfig[index] + 'Express');

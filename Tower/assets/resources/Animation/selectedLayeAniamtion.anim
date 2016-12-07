@@ -3,7 +3,7 @@
   "_name": "selectedLayeAniamtion",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 1.7666666666666666,
+  "_duration": 1.77,
   "sample": 60,
   "speed": 1,
   "wrapMode": 1,
@@ -93,6 +93,20 @@
             {
               "frame": 1.1333333333333333,
               "value": 450
+            }
+          ]
+        }
+      },
+      "goldLabel_bg": {
+        "props": {
+          "y": [
+            {
+              "frame": 0.7,
+              "value": -645
+            },
+            {
+              "frame": 1,
+              "value": -439
             }
           ]
         }

@@ -2183,6 +2183,9 @@
     },
     "EnCostSubLabel": {
       "__id__": 48
+    },
+    "UPLevelCostGoldLabel": {
+      "__id__": 55
     }
   },
   {

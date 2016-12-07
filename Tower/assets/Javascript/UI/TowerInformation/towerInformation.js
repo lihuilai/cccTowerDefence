@@ -61,27 +61,31 @@ cc.Class({
         EnCostSubLabel: {
             default: null,
             type: cc.Label
+        },
+        UPLevelCostGoldLabel: {
+            default: null,
+            type: cc.Label
         }
     },
 
     // use this for initialization
     onLoad: function () {
-        // cc.url.raw('resources/ui/bg.png',function (err,res) {
-        //
-        // })
-        // let url = cc.url.raw('resources/ui/bg.png');
-        // let speiteFrame = new cc.SpriteFrame(url);
-        // let node = new cc.Node('node');
-        // this.node.addChild(node);
-        // node.addComponent(cc.SpriteFrame).spriteFrame = spriteFrame;
+    },
+    update:function(dt){
 
-        // var self = this;
-        // cc.loader.loadRes("button.png", cc.SpriteFrame, function (err, spriteFrame) {
-        //     self.node.addComponent(cc.Sprite).spriteFrame = spriteFrame;
-        // });
     },
 
     showTowerInformationAnimation: function (index) {
+        this.index = index;
+        this.referUIShow(index);
+
+
+    },
+    closeButton: function (event,customData) {
+        cc.log('close button');
+        this.node.destroy();
+    },
+    referUIShow: function (index) {
         var animate = cc.instantiate(this.TowerAnimationList[index]);
         this.AnimateLayer.addChild(animate);
         ///得到当前塔的等级
@@ -122,18 +126,28 @@ cc.Class({
             self.RequirePowerLabel.string = 'EnCost:' + reqPower;
             let addPower = defines.getRequirePower(index,level + 1,res) - reqPower;
             self.EnCostSubLabel.string = '+' + addPower;
+
+            //
+            let requireExpress = levelExpress - express;
+            cc.log('升级所需要的经验值' + requireExpress);
+            let requireGold = Math.ceil(requireExpress/defines.ExpressToGold);
+            cc.log('升级所需要的金币值' + requireGold);
+            self.UPLevelCostGoldLabel.string = requireGold + '';
+
+
         });
-
-
-    },
-    closeButton: function (event,customData) {
-        cc.log('close button');
-        this.node.destroy();
     },
     buttonClick: function (event, customData) {
         cc.log('customData' + customData);
         switch (customData){
             case 'update':
+                cc.log('up level tower');
+                let  level = defines.getTowerLevel(this.index);
+                level ++;
+                defines.saveGameInfo(defines.TowerNameConfig[this.index] + 'Level',level);
+                this.referUIShow(this.index);
+
+
 
 
 

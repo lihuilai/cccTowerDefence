@@ -1,3 +1,4 @@
+import global from './../global'
 cc.Class({
     extends: cc.Component,
 
@@ -10,10 +11,6 @@ cc.Class({
         TowerMenuBg: {
             default: null,
             type: cc.Node
-        },
-        Label: {
-            default: null,
-            type: cc.Label
         },
         LeftList: {
             default: null,
@@ -46,15 +43,10 @@ cc.Class({
     onLoad: function () {
         this.MenuItem = {};
         this.getComponent(cc.Animation).play('selectedLayeAniamtion',0);
-        // cc.loader.load(cc.url.raw('resources/config/config.json'),function (err,res) {
-        //    if (err){
-        //        cc.log(err);
-        //    }else {
-        //
-        //        cc.log('load' + JSON.stringify(res));
-        //    }
-        // });
-        // cc.log('width=' + defines.ScreenConfie.width);
+        this.GoldCountLabel = cc.find('Canvas/selectedLayer/goldLabel_bg/Label').getComponent(cc.Label);
+    },
+    update: function (dt) {
+        this.GoldCountLabel.string = global.playerData.GoldCount;
     },
 
 
