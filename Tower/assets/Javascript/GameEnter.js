@@ -5,6 +5,7 @@ cc.Class({
     properties: {
     },
     onLoad: function () {
+        cc.sys.localStorage.clear();
         if (defines.getGameInfo('Game5') === null){
             for (let i in defines.TowerNameConfig){
                 defines.saveGameInfo(defines.TowerNameConfig[i] + 'Level',1);

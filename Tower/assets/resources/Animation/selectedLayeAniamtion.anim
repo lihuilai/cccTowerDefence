@@ -3,7 +3,7 @@
   "_name": "selectedLayeAniamtion",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 1.77,
+  "_duration": 1.7666666666666666,
   "sample": 60,
   "speed": 1,
   "wrapMode": 1,
@@ -107,6 +107,26 @@
             {
               "frame": 1,
               "value": -439
+            }
+          ]
+        }
+      },
+      "uiLayer/LeftList/view/content/icon_tower_2": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.3333333333333333,
+              "value": -223,
+              "curve": [
+                0.16,
+                0.43,
+                0.52,
+                1.33
+              ]
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": -4
             }
           ]
         }

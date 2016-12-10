@@ -115,6 +115,7 @@ cc.Class({
         }
     },
     DisPlayTowerInformation: function (object,coustomData) {
+        cc.log('coustom data icon button=' + coustomData);
         this.CloseDisPlayTowerInformation();
         this.towerInformation = cc.instantiate(this.TowerInformation);
         this.towerInformation.getComponent('towerInformation').showTowerInformationAnimation(coustomData);
