@@ -27,5 +27,5 @@ let Manager = ()=> {
     };
     return that;
 }
-let reosurcesManager = Manager();
-export default reosurcesManager
+let resourcesManager = Manager();
+export default resourcesManager;

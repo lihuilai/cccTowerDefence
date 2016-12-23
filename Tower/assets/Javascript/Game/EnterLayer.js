@@ -1,15 +1,20 @@
+import global from './../global'
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        SelectedLayer: {
-            default: null,
-            type: cc.Node
-        }
+        // SelectedLayer: {
+        //     default: null,
+        //     type: cc.Node
+        // }
     },
 
     // use this for initialization
     onLoad: function () {
+
+
+
+
 
         // this.Label1.node.setOpacity(0);
         // this.Label2.node.setOpacity(0);
@@ -56,7 +61,9 @@ cc.Class({
         cc.log('animation is over');
         this.node.destroy();
         // this.SelectedLayer.getComponent('SelectedLayer').enter();
-        this.SelectedLayer.active = true;
+        // this.SelectedLayer.active = true;
+
+        cc.director.loadScene('ChooseLevel');
 
     },
     buttonClick: function (event,customData) {
@@ -75,6 +82,18 @@ cc.Class({
         }
 
 
+    },
+    adsButtonClick: function (event, coustomData) {
+        switch (coustomData){
+            case 'preload':
+                cc.log('preload');
+                global.SDKManager.preloadBanner();
+                break;
+            case 'show':
+                cc.log('show');
+                global.SDKManager.showBanner();
+                break;
+        }
     }
 
 

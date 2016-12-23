@@ -7,7 +7,8 @@ let Defines = ()=> {
     that.ConfigUrl = {
         gong: 'resources/config/gongConfig.json',
         dapao: 'resources/config/dapaoConfig.json',
-        jindapao: 'resources/config/jindapaoConfig.json'
+        jindapao: 'resources/config/jindapaoConfig.json',
+        kehuanpao: 'resources/config/kehuanpaoConfig.json'
     };
     that.ScreenConfie = {
         width: 1920,
@@ -22,7 +23,7 @@ let Defines = ()=> {
         //todo 解密算法
         return value;
     }
-    that.TowerNameConfig = ['gong','dapao','jindapao'];
+    that.TowerNameConfig = ['gong','dapao','jindapao','kehuanpao'];
     that.saveGameInfo = function (key,value) {
         let data = screctData(value);
         cc.sys.localStorage.setItem(key,data);

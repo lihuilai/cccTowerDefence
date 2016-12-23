@@ -1,10 +1,14 @@
 import defines from './Defines'
+import global from './global'
 cc.Class({
     extends: cc.Component,
 
     properties: {
     },
     onLoad: function () {
+
+        // global.SDKManager.getOSType();
+
         cc.sys.localStorage.clear();
         if (defines.getGameInfo('Game5') === null){
             for (let i in defines.TowerNameConfig){
@@ -16,6 +20,11 @@ cc.Class({
         }else {
             cc.log('不是第一次进入游戏的');
         }
+
+
+
+
     },
+    
 
 });

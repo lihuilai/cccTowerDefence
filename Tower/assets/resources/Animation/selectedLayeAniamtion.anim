@@ -130,6 +130,46 @@
             }
           ]
         }
+      },
+      "uiLayer/LeftList/view/content/icon_tower_3": {
+        "props": {
+          "x": [
+            {
+              "frame": 0.45000000000000007,
+              "value": -227,
+              "curve": [
+                0.12,
+                0.51,
+                0.55,
+                1.53
+              ]
+            },
+            {
+              "frame": 0.85,
+              "value": -9
+            }
+          ]
+        }
+      },
+      "uiLayer/LeftList/view/content/icon_tower_0": {
+        "props": {
+          "x": [
+            {
+              "frame": 0,
+              "value": -222,
+              "curve": [
+                0.06,
+                0.45,
+                0.41,
+                1.35
+              ]
+            },
+            {
+              "frame": 0.23333333333333334,
+              "value": 0
+            }
+          ]
+        }
       }
     }
   },

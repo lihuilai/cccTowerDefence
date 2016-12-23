@@ -174,6 +174,7 @@ cc.Class({
     buttonClick: function (event, customData) {
         cc.log('customData' + customData);
         let self = this;
+        // this.TowerObject = event
         switch (customData){
             case 'update':
                 cc.log('up level tower');
@@ -204,17 +205,16 @@ cc.Class({
                     }
 
                 });
-
-
-
-
-
-
-
-
-
                 break;
             case 'use':
+                cc.log('装备大炮');
+
+
+                global.EventController.fire('useTowerWithInfo',{
+                    towerIndex: this.index,
+                });
+
+
                 break;
             default:
                 break;
